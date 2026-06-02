@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RPG Character Generator</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#0f172a,#1e1b4b,#312e81);
+    font-family:Arial, sans-serif;
+    padding:20px;
+}
+
+.container{
+    width:100%;
+    max-width:500px;
+}
+
+.card{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:25px;
+    padding:30px;
+    box-shadow:0 20px 40px rgba(0,0,0,.4);
+}
+
+h1{
+    font-family:'Cinzel', serif;
+    text-align:center;
+    color:#facc15;
+    margin-bottom:25px;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    margin-bottom:15px;
+    border:none;
+    border-radius:12px;
+    background:rgba(255,255,255,.1);
+    color:white;
+    font-size:16px;
+    outline:none;
+}
+
+input::placeholder{
+    color:#cbd5e1;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    background:#facc15;
+    color:#111827;
+    font-weight:bold;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    transform:translateY(-2px);
+}
+
+.character{
+    display:none;
+    margin-top:25px;
+    text-align:center;
+    color:white;
+}
+
+.avatar{
+    font-size:70px;
+    margin-bottom:15px;
+}
+
+.name{
+    font-family:'Cinzel', serif;
+    font-size:30px;
+    margin-bottom:10px;
+}
+
+.info{
+    margin:10px 0;
+    padding:12px;
+    border-radius:12px;
+    background:rgba(255,255,255,.08);
+}
+
+.length{
+    margin-top:15px;
+    background:#16a34a;
+    padding:12px;
+    border-radius:12px;
+    font-weight:bold;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+
+        <h1>⚔ RPG Character Generator</h1>
+
+        <input type="text" id="name" placeholder="Character Name">
+        <input type="text" id="city" placeholder="City">
+        <input type="text" id="class" placeholder="Class">
+
+        <button onclick="generateCharacter()">
+            Generate Character
+        </button>
+
+        <div class="character" id="character">
+
+            <div class="avatar">🧙</div>
+
+            <div class="name" id="heroName"></div>
+
+            <div class="info">
+                🏰 City: <span id="heroCity"></span>
+            </div>
+
+            <div class="info">
+                ⚔ Class: <span id="heroClass"></span>
+            </div>
+
+            <div class="length" id="nameLength"></div>
+
+        </div>
+
+    </div>
+</div>
+
+<script>
+function generateCharacter(){
+
+    const name = document.getElementById("name").value;
+    const city = document.getElementById("city").value;
+    const heroClass = document.getElementById("class").value;
+
+    document.getElementById("heroName").textContent = name;
+    document.getElementById("heroCity").textContent = city;
+    document.getElementById("heroClass").textContent = heroClass;
+
+    document.getElementById("nameLength").textContent =
+        `📏 Name Length: ${name.length} characters`;
+
+    document.getElementById("character").style.display = "block";
+}
+</script>
+
+</body>
+</html>
